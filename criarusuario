@@ -8,7 +8,7 @@ then
 	echo -e "\033[0m"
 	if cat /etc/passwd |grep $name: |grep -vi [a-z]$name |grep -v [0-9]$name > /dev/null
 	then
-		echo -e "\033[1;31mUsuario $name ja existe\033[0m"
+		echo -e "\033[1;31mUsuario $nombre ya existe\033[0m"
 	else
 		valid=$(date '+%C%y-%m-%d' -d " +$daysrnf days")
 		datexp=$(date "+%d/%m/%Y" -d "+ $daysrnf days")
@@ -23,9 +23,9 @@ then
 else
 	if echo $(id) |grep sudo > /dev/null
 	then
-	echo "Su usuario esta no grupo sudo"
+	echo "Su usuario no esta en el grupo sudo"
 	echo -e "Para virar root execute \033[1;31msudo su\033[0m"
-	echo -e "Ou execute o Newuser como sudo. \033[1;31msudo Newuser\033[0m"
+	echo -e "Ou execute o crearusuario como sudo. \033[1;31msudo criarusuario\033[0m"
 	else
 	echo -e "Vc nao esta como usuario root, nem com seus direitos (sudo)\nPara virar root execute \033[1;31msu\033[0m e digite sua senha root"
 	fi
